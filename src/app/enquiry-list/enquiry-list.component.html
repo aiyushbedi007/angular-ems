@@ -9,9 +9,13 @@
     <!-- Enquirys list table, it hides when there is no Enquiry -->
     <div *ngIf="Enquiry.length !== 0">
       <h3 class="mb-3 text-center">Enquiries</h3>
-  
+
+      <form class="search">
+        <input class="form-control mb-4" id="tableSearch" type="text" placeholder="Search..." />
+      </form>
+
       <div class="col-md-12">
-        <table class="table table-bordered">
+        <table id="tblList" class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
               <th scope="col">S.No.</th>
@@ -22,9 +26,9 @@
               <th scope="col" colspan="2">Action</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let enquiry of Enquiry">
-              <td>{{enquiry.id}}</td>
+          <tbody id='myTable'>
+            <tr *ngFor="let enquiry of Enquiry; let i = index">
+              <td>{{i+1}}</td>
               <td>{{enquiry.title}}</td>
               <td>{{enquiry.snippet}}</td>
               <td>{{enquiry.body}}</td>
@@ -43,3 +47,15 @@
     </div>
   
   </div>
+
+  <script>
+    //Dynamic Search in table columns
+  $(document).ready(function(){
+      $("#tableSearch").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>

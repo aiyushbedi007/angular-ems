@@ -18,7 +18,7 @@ export class EnquiryCreateComponent implements OnInit {
 
   ngOnInit() { }
 
-  addEnquiry(dataEnquiry) {
+  addEnquiry() {
     this.restApi.createEnquiry(this.enquiryDetails).subscribe((data: {}) => {
       this.router.navigate(['/enquiry-list'])
     })
