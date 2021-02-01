@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'bootstrap-form/-create',
+  selector: 'bootstrap-form-create',
   templateUrl: './bootstrap-form.component.html',
   styleUrls: ['./bootstrap-form.component.css']
 })
