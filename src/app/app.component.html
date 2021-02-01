@@ -1,12 +1,24 @@
-<mat-toolbar color="primary">
-  <h1>
-    ngStore 
-  </h1>
-  <button mat-button routerLink="/">Home</button>
-  <button mat-button routerLink="/about">About</button>
-
-</mat-toolbar>
+<nav>
+  <div class="site-title">
+    <button mat-button routerLink="/">Home</button>
+    <ul>
+      <li><button mat-button routerLink="/enquiry-list">Enquires</button></li>
+      <li><button mat-button routerLink="/create-enquiry">New Enquiry</button></li>
+    </ul>
+  </div>
+  <ul>
+    <!-- <% if (user) { %>
+      <li>Welcome, <%= user.uname %></li>
+      <li><a href="/logout">Log out</a></li>
+    <% } else { %>
+      <li><a href="/login" class="btn">Log in</a></li>
+      <li><a href="/signup" class="btn">Sign up</a></li>
+    <% } %> -->
+  </ul>
+</nav>
 
 <app-enquirys></app-enquirys>
 
 <router-outlet></router-outlet>
+
+

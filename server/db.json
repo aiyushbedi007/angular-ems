@@ -1,0 +1,15 @@
+{
+    "enquirys": [{
+      "id": 1,
+      "title": "Tony Stark",
+      "snippet": "aaaa",
+      "body": "aaaa",
+      "raisedBy": "tony@mcu.com"
+    }, {
+        "id": 2,
+        "title": "Ashu Stark",
+        "snippet": "aaaa",
+        "body": "aaaa",
+        "raisedBy": "ashu@mcu.com"
+    }]
+  }

@@ -6,6 +6,9 @@ import { BootstrapTableComponent } from './bootstrap-table/bootstrap-table.compo
 import { BootstrapFormComponent } from './bootstrap-form/bootstrap-form.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { EnquirysComponent } from './enquirys/enquirys.component';
+import { EnquiryCreateComponent } from './enquiry-create/enquiry-create.component';
+import { EnquiryEditComponent } from './enquiry-edit/enquiry-edit.component';
+import { EnquiryListComponent } from './enquiry-list/enquiry-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,6 +18,9 @@ const routes: Routes = [
   { path: "bootstrap-form", component: BootstrapFormComponent},
   { path: "bootstrap-table", component: BootstrapTableComponent},
   { path: 'enquirys', component: EnquirysComponent },
+  { path: 'create-enquiry', component: EnquiryCreateComponent },
+  { path: 'enquiry-list', component: EnquiryListComponent },
+  { path: 'enquiry-edit/:id', component: EnquiryEditComponent } 
 ];
 
 @NgModule({
