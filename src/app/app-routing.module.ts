@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { BootstrapTableComponent } from './bootstrap-table/bootstrap-table.component';
 import { BootstrapFormComponent } from './bootstrap-form/bootstrap-form.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { EnquirysComponent } from './enquirys/enquirys.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: "jumbotron", component: JumbotronComponent},
   { path: "bootstrap-form", component: BootstrapFormComponent},
-  { path: "bootstrap-table", component: BootstrapTableComponent} 
+  { path: "bootstrap-table", component: BootstrapTableComponent},
+  { path: 'enquirys', component: EnquirysComponent },
 ];
 
 @NgModule({

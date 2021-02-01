@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { BootstrapFormComponent } from './bootstrap-form/bootstrap-form.component';
 import { BootstrapTableComponent } from './bootstrap-table/bootstrap-table.component';
+import { EnquirysComponent } from './enquirys/enquirys.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BootstrapTableComponent } from './bootstrap-table/bootstrap-table.compo
     AboutComponent,
     JumbotronComponent,
     BootstrapFormComponent,
-    BootstrapTableComponent
+    BootstrapTableComponent,
+    EnquirysComponent
   ],
   imports: [
     BrowserModule,
