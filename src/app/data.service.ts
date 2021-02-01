@@ -51,14 +51,14 @@ export class DataService {
     }));
   }
 
-  parseLinkHeader(header: any ) {
+  parseLinkHeader(header ) {
     if (header.length == 0) {
       return ;
     }
 
     let parts = header.split(',');
-    var links: any = {};
-    parts.forEach( function(p: any){
+    var links = {};
+    parts.forEach( function(p){
       let section = p.split(';');
       var url = section[0].replace(/<(.*)>/, '$1').trim();
       var name = section[1].replace(/rel="(.*)"/, '$1').trim();
