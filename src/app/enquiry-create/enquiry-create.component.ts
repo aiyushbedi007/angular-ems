@@ -11,6 +11,8 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class EnquiryCreateComponent implements OnInit {
 
+  isLoggedIn = false;
+
   @Input() enquiryDetails = { title: '', snippet: '', body: '', raisedby: ''};
 
   constructor(
@@ -19,14 +21,18 @@ export class EnquiryCreateComponent implements OnInit {
     public router: Router
   ) { }
 
-  ngOnInit(): void { }
-
-  addEnquiry(): void {
-    const user = this.tokenStorageService.getUser();
-    this.enquiryDetails.raisedby = user.user.email;
-    this.restApi.createEnquiry(this.enquiryDetails).subscribe((data: {}) => {
-      this.router.navigate(['/enquiry-list']);
-    });
+  ngOnInit(): void { 
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login']);
+    }
   }
 
+  addEnquiry(): void {
+      const user = this.tokenStorageService.getUser();
+      this.enquiryDetails.raisedby = user.user.email;
+      this.restApi.createEnquiry(this.enquiryDetails).subscribe((data: {}) => {
+      this.router.navigate(['/enquiry-list']);
+      });
+  }
 }

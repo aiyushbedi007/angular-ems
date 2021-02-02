@@ -10,7 +10,6 @@ export class AppComponent implements OnInit {
   title = 'angular-ems';
   private roles: string[] = [];
   isLoggedIn = false;
-  showAdminBoard = false;
   username?: string;
   constructor(private tokenStorageService: TokenStorageService) { }
 
@@ -19,7 +18,7 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-      this.roles = user.user.roles;
+      this.roles = user.user.role;
       this.username = user.user.uname;
     }
   }

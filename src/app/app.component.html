@@ -1,34 +1,34 @@
 <div id="app">
   <nav>
     <div class="site-title">
-      <a href="#" class="navbar-brand"><h2>Enquiry Management System</h2></a>
-      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <a href="#" ><h2>Enquiry Management System</h2></a>
+      <ul routerLinkActive="active">
 
-        <li class="nav-item">
-          <a href="/enquiry-list" class="nav-link" routerLink="enquiry-list">Enquires </a>
+        <li>
+          <a href="/enquiry-list" routerLink="enquiry-list">Enquires </a>
         </li>
   
-        <li class="nav-item">
-          <a href="/create-enquiry" class="nav-link" routerLink="create-enquiry">New Enquiry </a>
+        <li>
+          <a href="/create-enquiry" routerLink="create-enquiry">New Enquiry </a>
         </li>
       </ul>
     </div>
 
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+    <ul *ngIf="!isLoggedIn">
+      <li>
+        <a href="/register" routerLink="register">Sign Up</a>
       </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      <li>
+        <a href="/login" routerLink="login">Login</a>
       </li>
     </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
+    <ul *ngIf="isLoggedIn">
+      <li>
         Welcome, {{ username }}
       </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
+      <li >
+        <a href (click)="logout()">LogOut</a>
       </li>
     </ul>
   </nav>

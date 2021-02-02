@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RestApiService } from '../shared/rest-api.service';
+import { TokenStorageService } from '../_services/token-storage.service';
+
 
 @Component({
   selector: 'app-enquiry-list',
@@ -9,13 +12,26 @@ import { RestApiService } from '../shared/rest-api.service';
 export class EnquiryListComponent implements OnInit {
 
   Enquiry: any = [];
+  isLoggedIn = false;
+  role = '';
+
 
   constructor(
+    private tokenStorageService: TokenStorageService,
+    public router: Router,
     public restApi: RestApiService
   ) { }
 
   ngOnInit(): void {
-    this.loadEnquirys();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login']);
+    }
+    else {
+      const user = this.tokenStorageService.getUser();
+      this.role = user.user.role;
+      this.loadEnquirys();
+    }
   }
 
   // Get Enquirys list

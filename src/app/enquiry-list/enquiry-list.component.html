@@ -23,7 +23,7 @@
               <th scope="col">Course Name</th>
               <th scope="col">Enquiry</th>
               <th scope="col">Email</th>
-              <th scope="col" colspan="2">Action</th>
+              <th *ngIf="role === 'admin'" scope="col" colspan="2">Action</th>
             </tr>
           </thead>
           <tbody id='myTable'>
@@ -33,10 +33,10 @@
               <td>{{enquiry.snippet}}</td>
               <td>{{enquiry.body}}</td>
               <td>{{enquiry.raisedby}}</td>
-              <td>
+              <td *ngIf="role === 'admin'">
                 <span class="edit" routerLink="/enquiry-edit/{{enquiry._id}}">Edit</span>
               </td>
-              <td>
+              <td *ngIf="role === 'admin'">
                 <span class="delete" (click)="deleteEnquiry(enquiry._id)">Delete</span>
               </td>
             </tr>
