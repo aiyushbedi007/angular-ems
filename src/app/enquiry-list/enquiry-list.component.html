@@ -32,12 +32,12 @@
               <td>{{enquiry.title}}</td>
               <td>{{enquiry.snippet}}</td>
               <td>{{enquiry.body}}</td>
-              <td>{{enquiry.email}}</td>
+              <td>{{enquiry.raisedby}}</td>
               <td>
-                <span class="edit" routerLink="/enquiry-edit/{{enquiry.id}}">Edit</span>
+                <span class="edit" routerLink="/enquiry-edit/{{enquiry._id}}">Edit</span>
               </td>
               <td>
-                <span class="delete" (click)="deleteEnquiry(enquiry.id)">Delete</span>
+                <span class="delete" (click)="deleteEnquiry(enquiry._id)">Delete</span>
               </td>
             </tr>
           </tbody>

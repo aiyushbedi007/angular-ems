@@ -1,39 +1,18 @@
-<nav>
-  <div class="site-title">
-    <button mat-button routerLink="/">Home</button>
-    <ul>
-      <li><button mat-button routerLink="/enquiry-list">Enquires</button></li>
-      <li><button mat-button routerLink="/create-enquiry">New Enquiry</button></li>
-    </ul>
-  </div>
-  <ul>
-    <!-- <% if (user) { %>
-      <li>Welcome, <%= user.uname %></li>
-      <li><a href="/logout">Log out</a></li>
-    <% } else { %>
-      <li><a href="/login" class="btn">Log in</a></li>
-      <li><a href="/signup" class="btn">Sign up</a></li>
-    <% } %> -->
-  </ul>
-</nav>
-
 <div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">bezKoder</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-      </li>
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
-    </ul>
+  <nav>
+    <div class="site-title">
+      <a href="#" class="navbar-brand"><h2>Enquiry Management System</h2></a>
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+
+        <li class="nav-item">
+          <a href="/enquiry-list" class="nav-link" routerLink="enquiry-list">Enquires </a>
+        </li>
+  
+        <li class="nav-item">
+          <a href="/create-enquiry" class="nav-link" routerLink="create-enquiry">New Enquiry </a>
+        </li>
+      </ul>
+    </div>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
@@ -46,7 +25,7 @@
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+        Welcome, {{ username }}
       </li>
       <li class="nav-item">
         <a href class="nav-link" (click)="logout()">LogOut</a>

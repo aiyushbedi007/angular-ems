@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'create-enquiry', component: EnquiryCreateComponent },
   { path: 'enquiry-list', component: EnquiryListComponent },
-  { path: 'enquiry-edit/:id', component: EnquiryEditComponent } 
+  { path: 'enquiry-edit/:id', component: EnquiryEditComponent },
 ];
 
 @NgModule({

@@ -1,10 +1,5 @@
 <div class="col-md-12">
     <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
       <form
         *ngIf="!isSuccessful"
         name="form"
@@ -13,24 +8,24 @@
         novalidate
       >
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="uname">Name</label>
           <input
             type="text"
             class="form-control"
-            name="username"
-            [(ngModel)]="form.username"
+            name="uname"
+            [(ngModel)]="form.uname"
             required
             minlength="3"
             maxlength="20"
-            #username="ngModel"
+            #uname="ngModel"
           />
-          <div class="alert-danger" *ngIf="username.errors && f.submitted">
-            <div *ngIf="username.errors.required">Username is required</div>
-            <div *ngIf="username.errors.minlength">
-              Username must be at least 3 characters
+          <div class="alert-danger" *ngIf="uname.errors && f.submitted">
+            <div *ngIf="uname.errors.required">Name is required</div>
+            <div *ngIf="uname.errors.minlength">
+              Name must be at least 3 characters
             </div>
-            <div *ngIf="username.errors.maxlength">
-              Username must be at most 20 characters
+            <div *ngIf="uname.errors.maxlength">
+              Name must be at most 20 characters
             </div>
           </div>
         </div>

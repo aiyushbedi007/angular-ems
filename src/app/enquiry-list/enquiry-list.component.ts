@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestApiService } from "../shared/rest-api.service";
+import { RestApiService } from '../shared/rest-api.service';
 
 @Component({
   selector: 'app-enquiry-list',
@@ -14,24 +14,24 @@ export class EnquiryListComponent implements OnInit {
     public restApi: RestApiService
   ) { }
 
-  ngOnInit() {
-    this.loadEnquirys()
+  ngOnInit(): void {
+    this.loadEnquirys();
   }
 
   // Get Enquirys list
-  loadEnquirys() {
+  loadEnquirys(): any {
     return this.restApi.getEnquirys().subscribe((data: {}) => {
       this.Enquiry = data;
-    })
+    });
   }
 
   // Delete Enquiry
-  deleteEnquiry(id) {
+  deleteEnquiry(id: any): void {
     if (window.confirm('Are you sure, you want to delete?')){
       this.restApi.deleteEnquiry(id).subscribe(data => {
-        this.loadEnquirys()
-      })
+        this.loadEnquirys();
+      });
     }
-  }  
+  }
 
 }

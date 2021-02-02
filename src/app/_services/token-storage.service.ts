@@ -7,10 +7,26 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
-  constructor() { }
+  private cookieStore = {};
+
+  constructor() {this.parseCookies(document.cookie); }
+
+  public parseCookies(cookies = document.cookie): void {
+    this.cookieStore = {};
+    if (!!cookies === false) { return; }
+    const cookiesArr = cookies.split(';');
+    for (const cookie of cookiesArr) {
+        const cookieArr = cookie.split('=');
+        this.cookieStore[cookieArr[0].trim()] = cookieArr[1];
+    }
+}
 
   signOut(): void {
     window.sessionStorage.clear();
+  }
+
+  remove(key: string): void {
+    document.cookie = `${key} = ; expires=Thu, 1 jan 1990 12:00:00 UTC; path=/`;
   }
 
   public saveToken(token: string): void {
@@ -18,8 +34,17 @@ export class TokenStorageService {
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
+  public set(key: string, value: string): void {
+    document.cookie = key + '=' + (value || '');
+  }
+
   public getToken(): string | null {
     return window.sessionStorage.getItem(TOKEN_KEY);
+  }
+
+  public get(key: string): string {
+    this.parseCookies();
+    return !!this.cookieStore[key] ? this.cookieStore[key] : null;
   }
 
   public saveUser(user: any): void {

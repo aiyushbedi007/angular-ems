@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { RestApiService } from "../shared/rest-api.service";
+import { RestApiService } from '../shared/rest-api.service';
+import { TokenStorageService } from '../_services/token-storage.service';
+
 
 @Component({
   selector: 'app-enquiry-create',
@@ -9,19 +11,22 @@ import { RestApiService } from "../shared/rest-api.service";
 })
 export class EnquiryCreateComponent implements OnInit {
 
-  @Input() enquiryDetails = { title: '', snippet: '', body: '', email: ''}
+  @Input() enquiryDetails = { title: '', snippet: '', body: '', raisedby: ''};
 
   constructor(
-    public restApi: RestApiService, 
+    private tokenStorageService: TokenStorageService,
+    public restApi: RestApiService,
     public router: Router
   ) { }
 
-  ngOnInit() { }
+  ngOnInit(): void { }
 
-  addEnquiry() {
+  addEnquiry(): void {
+    const user = this.tokenStorageService.getUser();
+    this.enquiryDetails.raisedby = user.user.email;
     this.restApi.createEnquiry(this.enquiryDetails).subscribe((data: {}) => {
-      this.router.navigate(['/enquiry-list'])
-    })
+      this.router.navigate(['/enquiry-list']);
+    });
   }
 
 }

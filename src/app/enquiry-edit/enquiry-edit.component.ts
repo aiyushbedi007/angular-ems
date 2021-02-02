@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestApiService } from "../shared/rest-api.service";
+import { RestApiService } from '../shared/rest-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -9,28 +9,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EnquiryEditComponent implements OnInit {
 
-  id = this.actRoute.snapshot.params['id'];
+  id = this.actRoute.snapshot.params.id;
   enquiryData: any = {};
 
   constructor(
     public restApi: RestApiService,
     public actRoute: ActivatedRoute,
     public router: Router
-  ) { 
+  ) {
   }
 
-  ngOnInit() { 
+  ngOnInit(): void {
     this.restApi.getEnquiry(this.id).subscribe((data: {}) => {
       this.enquiryData = data;
-    })
+    });
   }
 
   // Update enquiry data
-  updateEnquiry() {
-    if(window.confirm('Are you sure, you want to update?')){
+  updateEnquiry(): void {
+    if (window.confirm('Are you sure, you want to update?')){
       this.restApi.updateEnquiry(this.id, this.enquiryData).subscribe(data => {
-        this.router.navigate(['/enquiry-list'])
-      })
+        this.router.navigate(['/enquiry-list']);
+      });
     }
   }
 

@@ -20,7 +20,7 @@ import { EnquiryEditComponent } from './enquiry-edit/enquiry-edit.component';
 import { EnquiryListComponent } from './enquiry-list/enquiry-list.component';
 import { HomeComponent } from './home/home.component';
 
-//Design Tools
+// Design Tools
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -28,8 +28,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//Auth Interceptor
-import { authInterceptorProviders } from './_helpers/auth.interceptor'
+// Auth Interceptor
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 
 @NgModule({
@@ -41,7 +41,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor'
     EnquiryListComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

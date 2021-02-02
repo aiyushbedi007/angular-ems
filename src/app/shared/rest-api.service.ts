@@ -9,7 +9,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 
 export class RestApiService {
-  
+
   // Define API
   apiURL = 'http://localhost:3000';
 
@@ -24,7 +24,7 @@ export class RestApiService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }  
+  };
 
   // HttpClient API get() method => Fetch enquirys list
   getEnquirys(): Observable<Enquiry> {
@@ -32,17 +32,17 @@ export class RestApiService {
     .pipe(
       retry(1),
       catchError(this.handleError)
-    )
+    );
   }
 
   // HttpClient API get() method => Fetch enquiry
-  getEnquiry(id): Observable<Enquiry> {
-    return this.http.get<Enquiry>(this.apiURL + '/enquirys/' + id)
+  getEnquiry(id: string): Observable<Enquiry> {
+    return this.http.get<Enquiry>(`${this.apiURL}/enquirys/edit/${id}`)
     .pipe(
       retry(1),
       catchError(this.handleError)
-    )
-  }  
+    );
+  }
 
   // HttpClient API post() method => Create enquiry
   createEnquiry(enquiry): Observable<Enquiry> {
@@ -50,31 +50,32 @@ export class RestApiService {
     .pipe(
       retry(1),
       catchError(this.handleError)
-    )
-  }  
+    );
+  }
 
   // HttpClient API put() method => Update enquiry
-  updateEnquiry(id, enquiry): Observable<Enquiry> {
-    return this.http.put<Enquiry>(this.apiURL + '/enquirys/' + id, JSON.stringify(enquiry), this.httpOptions)
+  updateEnquiry(id: string, enquiry: any): Observable<Enquiry> {
+    return this.http.patch<Enquiry>(this.apiURL + '/enquirys/' + id, JSON.stringify(enquiry), this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
-    )
+    );
   }
 
   // HttpClient API delete() method => Delete enquiry
-  deleteEnquiry(id){
+  deleteEnquiry(id: string): any{
     return this.http.delete<Enquiry>(this.apiURL + '/enquirys/' + id, this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.handleError)
-    )
+    );
   }
 
-  // Error handling 
+  // Error handling
+  // tslint:disable-next-line: typedef
   handleError(error) {
      let errorMessage = '';
-     if(error.error instanceof ErrorEvent) {
+     if (error.error instanceof ErrorEvent) {
        // Get client-side error
        errorMessage = error.error.message;
      } else {
