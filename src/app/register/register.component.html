@@ -1,23 +1,9 @@
 <div class="col-md-12">
       <form
-        *ngIf="!isSuccessful"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate
-      >
+        *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="form-group">
           <label for="uname">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            name="uname"
-            [(ngModel)]="form.uname"
-            required
-            minlength="3"
-            maxlength="20"
-            #uname="ngModel"
-          />
+          <input type="text" class="form-control" name="uname" [(ngModel)]="form.uname" required minlength="3" maxlength="20" #uname="ngModel" />
           <div class="alert-danger" *ngIf="uname.errors && f.submitted">
             <div *ngIf="uname.errors.required">Name is required</div>
             <div *ngIf="uname.errors.minlength">
@@ -30,15 +16,7 @@
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            [(ngModel)]="form.email"
-            required
-            email
-            #email="ngModel"
-          />
+          <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" />
           <div class="alert-danger" *ngIf="email.errors && f.submitted">
             <div *ngIf="email.errors.required">Email is required</div>
             <div *ngIf="email.errors.email">
@@ -48,15 +26,7 @@
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            [(ngModel)]="form.password"
-            required
-            minlength="6"
-            #password="ngModel"
-          />
+          <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
           <div class="alert-danger" *ngIf="password.errors && f.submitted">
             <div *ngIf="password.errors.required">Password is required</div>
             <div *ngIf="password.errors.minlength">

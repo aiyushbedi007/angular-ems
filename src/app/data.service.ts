@@ -14,6 +14,7 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // tslint:disable-next-line: typedef
   handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {

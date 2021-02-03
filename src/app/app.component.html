@@ -3,17 +3,14 @@
     <div class="site-title">
       <a href="#" ><h2>Enquiry Management System</h2></a>
       <ul routerLinkActive="active">
-
         <li>
           <a href="/enquiry-list" routerLink="enquiry-list">Enquires </a>
         </li>
-  
         <li>
           <a href="/create-enquiry" routerLink="create-enquiry">New Enquiry </a>
         </li>
       </ul>
     </div>
-
     <ul *ngIf="!isLoggedIn">
       <li>
         <a href="/register" routerLink="register">Sign Up</a>
@@ -22,7 +19,6 @@
         <a href="/login" routerLink="login">Login</a>
       </li>
     </ul>
-
     <ul *ngIf="isLoggedIn">
       <li>
         Welcome, {{ username }}
@@ -32,7 +28,6 @@
       </li>
     </ul>
   </nav>
-
   <div class="container">
     <router-outlet></router-outlet>
   </div>

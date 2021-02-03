@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
+    // Check for User Login
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       const user = this.tokenStorage.getUser();
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     const { email, password } = this.form;
 
+    // Authenticate the user
     this.authService.login(email, password).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);

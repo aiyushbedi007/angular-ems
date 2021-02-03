@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 // Components
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
 import { EnquiryCreateComponent } from './enquiry-create/enquiry-create.component';
 import { EnquiryEditComponent } from './enquiry-edit/enquiry-edit.component';
 import { EnquiryListComponent } from './enquiry-list/enquiry-list.component';
@@ -33,6 +32,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 // Filter
 import { FilterPipe } from './filter.pipe';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -44,7 +44,6 @@ import { FilterPipe } from './filter.pipe';
     EnquiryListComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent,
     FilterPipe,
   ],
   imports: [
@@ -57,7 +56,8 @@ import { FilterPipe } from './filter.pipe';
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

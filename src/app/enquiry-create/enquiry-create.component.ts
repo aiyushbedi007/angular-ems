@@ -21,7 +21,7 @@ export class EnquiryCreateComponent implements OnInit {
     public router: Router
   ) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (!this.isLoggedIn) {
       this.router.navigate(['/login']);

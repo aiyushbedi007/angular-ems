@@ -13,7 +13,7 @@ export class EnquiryListComponent implements OnInit {
 
   Enquiry: any = [];
   isLoggedIn = false;
-  role = '';
+  role: string;
   email: string;
   public searchText: string;
 
@@ -24,6 +24,8 @@ export class EnquiryListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    // Check for User Login
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (!this.isLoggedIn) {
       this.router.navigate(['/login']);

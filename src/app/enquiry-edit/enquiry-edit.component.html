@@ -5,11 +5,11 @@
   
       <div class="form-group">
         <label for="title">Enquiry title:</label>
-        <input type="text" [(ngModel)]="enquiryData.title" class="form-control" placeholder="Name">
+        <input type="text" [(ngModel)]="enquiryData.title" class="form-control" placeholder="title">
         <label for="snippet">Course Name:</label>
-        <input type="text" [(ngModel)]="enquiryData.snippet" class="form-control" placeholder="Email">
+        <input type="text" [(ngModel)]="enquiryData.snippet" class="form-control" placeholder="course">
         <label for="body">Your Enquiry:</label>
-        <input type="text" [(ngModel)]="enquiryData.body" class="form-control" placeholder="Phone">
+        <input type="text" [(ngModel)]="enquiryData.body" class="form-control" placeholder="body">
   
         <button (click)="updateEnquiry()">Update Enquiry</button>
       </div>

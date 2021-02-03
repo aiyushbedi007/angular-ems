@@ -25,26 +25,13 @@ export class TokenStorageService {
     window.sessionStorage.clear();
   }
 
-  remove(key: string): void {
-    document.cookie = `${key} = ; expires=Thu, 1 jan 1990 12:00:00 UTC; path=/`;
-  }
-
   public saveToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
-  public set(key: string, value: string): void {
-    document.cookie = key + '=' + (value || '');
-  }
-
   public getToken(): string | null {
     return window.sessionStorage.getItem(TOKEN_KEY);
-  }
-
-  public get(key: string): string {
-    this.parseCookies();
-    return !!this.cookieStore[key] ? this.cookieStore[key] : null;
   }
 
   public saveUser(user: any): void {
