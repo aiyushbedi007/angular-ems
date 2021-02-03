@@ -14,7 +14,8 @@ export class EnquiryListComponent implements OnInit {
   Enquiry: any = [];
   isLoggedIn = false;
   role = '';
-
+  email: string;
+  public searchText: string;
 
   constructor(
     private tokenStorageService: TokenStorageService,
@@ -30,6 +31,7 @@ export class EnquiryListComponent implements OnInit {
     else {
       const user = this.tokenStorageService.getUser();
       this.role = user.user.role;
+      this.email = user.user.email;
       this.loadEnquirys();
     }
   }
