@@ -31,6 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Auth Interceptor
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
+// Filter
+import { FilterPipe } from './filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
